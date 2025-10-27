@@ -4,7 +4,7 @@
 [![Kotlin](https://img.shields.io/badge/kotlin-2.0.0-585DEF.svg?logo=kotlin)](http://kotlinlang.org)
 [![Maven Central](https://img.shields.io/maven-central/v/io.github.haburashi76/music-maker)](https://search.maven.org/artifact/io.github.haburashi76/music-maker)
 
-[![GitHub](https://img.shields.io/github/license/haburashi76/music-maker    )](https://www.gnu.org/licenses/gpl-3.0.html)
+[![GitHub](https://img.shields.io/github/license/haburashi76/music-maker)](https://www.gnu.org/licenses/gpl-3.0.html)
 
 ### Kotlin DSL for PaperMC for Note Block Music Production
 
