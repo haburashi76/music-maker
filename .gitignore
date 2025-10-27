@@ -1,0 +1,12 @@
+/.gradle/
+/build/
+/music-maker/build/
+/music-maker/build/classes/kotlin/main/
+/.idea/
+!gradle-wrapper.jar
+!gradle-wrapper.properties
+/.kotlin/
+
+# 프로젝트 제외 경로
+/music-maker-test/build/
+/music-maker-test/build/classes/kotlin/main/

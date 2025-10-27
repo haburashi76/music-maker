@@ -1,0 +1,6 @@
+name: music-maker
+version: 1.0.0
+api-version: 1.21
+author: Haburashi76
+description: test
+main: io.github.haburashi76.musicMakerTest.TestPlugin
