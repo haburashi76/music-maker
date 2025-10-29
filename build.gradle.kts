@@ -54,7 +54,7 @@ project(":${rootProject.name}") {
         coordinates(
             groupId = "io.github.haburashi76",
             artifactId = this@project.name,
-            version = "1.0.1"
+            version = "1.0.2"
         )
 
         pom {

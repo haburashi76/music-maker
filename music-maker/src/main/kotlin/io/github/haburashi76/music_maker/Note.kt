@@ -51,7 +51,7 @@ data class Note(var pitch: Float, var type: NoteType): Cloneable {
         const val A_SHARP_2 = 1.259921f
         const val LA_SHARP_1 = A_SHARP_2
         const val B_2 = 1.334840f
-        const val SI = B_2
+        const val SI_1 = B_2
         const val C_2 = 1.414214f
         const val DO_2 = C_2
         const val C_SHARP_2 = 1.498307f
