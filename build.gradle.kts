@@ -44,6 +44,7 @@ project(":${rootProject.name}") {
             archiveClassifier.set("javadoc")
             dependsOn("dokkaHtml")
 
+            @Suppress("DEPRECATION")
             from("$buildDir/dokka/html/") {
                 include("**")
             }
@@ -53,7 +54,7 @@ project(":${rootProject.name}") {
         coordinates(
             groupId = "io.github.haburashi76",
             artifactId = this@project.name,
-            version = "1.0.0"
+            version = "1.0.1"
         )
 
         pom {
