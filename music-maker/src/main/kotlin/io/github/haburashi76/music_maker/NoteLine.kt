@@ -2,16 +2,22 @@ package io.github.haburashi76.music_maker
 
 import java.util.SortedMap
 
-class NoteLine internal constructor(
+class NoteLine private constructor(
     private val notes: SortedMap<ULong, Note> = sortedMapOf()
 ): Cloneable, SortedMap<ULong, Note> by notes {
 
     companion object {
-        fun from(map: Map<ULong, Note>): NoteLine {
-            val newNoteLine = NoteLine()
-            map.forEach {
-                newNoteLine.putIfAbsent(it.key, it.value)
-            }
+        @Deprecated("from은 SortedMap에서 가져온다는 의미인데 SortedMap 없이 " +
+                "생성하고 싶을수도 있으니까. make 함수 인자에 SortedMap 넣으면 똑같음")
+        fun from(map: SortedMap<ULong, Note>, modify: NoteLine.() -> Unit): NoteLine {
+            val newNoteLine = NoteLine(map)
+            modify(newNoteLine)
+            return newNoteLine
+        }
+
+        fun make(map: SortedMap<ULong, Note> = sortedMapOf(), modify: NoteLine.() -> Unit): NoteLine {
+            val newNoteLine = NoteLine(map)
+            modify(newNoteLine)
             return newNoteLine
         }
     }
@@ -34,12 +40,7 @@ class NoteLine internal constructor(
         return this
     }
 
-    fun shiftSoThatFirstKeyIsZero(): NoteLine {
-        val shifted = mapKeys { it.key - firstKey() }.toSortedMap()
-        notes.clear()
-        notes.putAll(shifted)
-        return this
-    }
+    fun shiftSoThatFirstKeyIsZero(): NoteLine = shift(-lastKey().toLong())
 
     fun moveUpKey(offset: Double): NoteLine {
         if (any { Note.Pitch.getTimesOfRightClick(it.value.pitch) + offset !in 0.0..24.0 })
@@ -62,4 +63,13 @@ class NoteLine internal constructor(
         }
         return newNoteLine
     }
+
+    fun addNote(delay: ULong, note: Note): NoteLine = apply {
+        if (isEmpty()) {
+            put(delay, note)
+        } else {
+            put(lastKey() + delay, note)
+        }
+    }
+
 }

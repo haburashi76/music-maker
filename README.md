@@ -97,6 +97,11 @@ class MyMusicMakerPlugin: JavaPlugin(), Listener {
             put(79uL, Note(Note.Pitch.FA_1, NoteType.XYLOPHONE))
             put(83uL, Note(Note.Pitch.MI_1, NoteType.XYLOPHONE))
         }
+        
+        line {
+            addNote(20uL, Note(...)) // 20틱째에 재생
+            addNote(10uL, Note(...)) // 마지막 틱(20) + 10틱째에 재생
+        }
     }
   
     override fun onEnable() {
